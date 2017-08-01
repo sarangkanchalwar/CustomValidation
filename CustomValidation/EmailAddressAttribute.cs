@@ -4,10 +4,12 @@ using System.Net.Mail;
 
 namespace CustomValidation
 {
-    public class ValidEmailAttribute : System.ComponentModel.DataAnnotations.ValidationAttribute
+    public class EmailAddressAttribute : System.ComponentModel.DataAnnotations.ValidationAttribute
     {
+        public bool IsRequired { get; set; }
+
         /// <summary>
-        /// Returns true if email is valid.
+        /// Returns true if ... is valid.
         /// </summary>
         /// <param name="value">The value to validate.</param>
         /// <param name="validationContext">The context information about the validation operation.</param>
@@ -16,7 +18,10 @@ namespace CustomValidation
         /// </returns>
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (value == null) return new ValidationResult("Email address required.");
+            if (value == null && IsRequired)
+                return new ValidationResult(string.Format("{0} can not be left blank. Please provide valid email address.", validationContext.DisplayName));
+            else if (value == null && IsRequired == false)
+                return ValidationResult.Success;
             try
             {
                 var mail = new MailAddress(value.ToString());
@@ -24,7 +29,7 @@ namespace CustomValidation
             }
             catch (Exception)
             {
-                return new ValidationResult("Invalid email address.");
+                return new ValidationResult(string.Format("{0} is not a valid email address.", validationContext.DisplayName));
             }
         }
     }

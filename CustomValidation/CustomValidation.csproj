@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ValidDomainAttribute.cs" />
+    <Compile Include="DomainNameAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidEmailAttribute.cs" />
+    <Compile Include="EmailAddressAttribute.cs" />
     <Compile Include="HttpLinkAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
