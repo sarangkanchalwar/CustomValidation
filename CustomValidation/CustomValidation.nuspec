@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CustomValidation</id>
+    <version>1.0.0</version>
+    <title>Custom Data Anotation Validation Attributes</title>
+    <authors>Sarang Kanchalwar</authors>
+    <owners>Sarang Kanchalwar</owners>
+    <licenseUrl>https://github.com/sarangkanchalwar/CustomValidation/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/sarangkanchalwar/CustomValidation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>	
+    <description>This package provides custom validation attributes for Domain Name, Http Link and Email Address.</description>
+    <releaseNotes>First release with custom validation attributes for Domain Name, Http Link and Email Address.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+	<language>en-US</language>
+    <tags>DomainName HttpLink EmailAddress CustomAttribute Attribute CustomValidation Validation DataAnotation</tags>
+	<dependencies>
+		<dependency id="System.ComponentModel.DataAnnotations" version="4.0" />
+    </dependencies>
+  </metadata>
+</package>
