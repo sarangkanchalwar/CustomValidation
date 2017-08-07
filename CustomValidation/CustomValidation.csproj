@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADUserNameAttribute.cs" />
     <Compile Include="DomainNameAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EmailAddressAttribute.cs" />
     <Compile Include="HttpLinkAttribute.cs" />
+    <Compile Include="ValidDateTimeAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
