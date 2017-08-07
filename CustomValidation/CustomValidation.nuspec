@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CustomValidation</id>
-    <version>1.0.2</version>
+    <version>1.0.3-beta</version>
     <title>Custom Validation Attributes</title>
     <authors>Sarang Kanchalwar</authors>
     <owners>Sarang Kanchalwar</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/sarangkanchalwar/CustomValidation</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>	
     <description>This package provides custom validation attributes for Domain Name, Http Link and Email Address.</description>
-    <releaseNotes>Fix dependency issue in version 1.0.0.</releaseNotes>
+    <releaseNotes>Added [ADUserName] attribute for Active Directory user name &amp; [ValidDateTime] attribute for validating string to be parse in DateTime object.</releaseNotes>
     <copyright>Copyright 2017</copyright>
 	<language>en-US</language>
     <tags>DomainName HttpLink EmailAddress CustomAttribute Attribute CustomValidation Validation DataAnotation</tags>
