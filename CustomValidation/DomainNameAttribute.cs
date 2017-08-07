@@ -19,18 +19,18 @@ namespace CustomValidation
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null && IsRequired)
-                return new ValidationResult(string.Format("{0} can not be left blank. Please provide valid domain.", validationContext.DisplayName));
+                return new ValidationResult(string.Format("{0} can not be left blank.", validationContext.DisplayName));
             else if (value == null && IsRequired == false)
                 return ValidationResult.Success;
 
             var domain = value.ToString();
             if (!domain.Contains('.'))
-                return new ValidationResult(string.Format("{0} is not a valid domain.", validationContext.DisplayName));
+                return new ValidationResult(string.Format("{0} is not a valid.", validationContext.DisplayName));
 
             var charCount = Regex.Matches(domain, @"[a-z]").Count;
             var periodCount = Regex.Matches(domain, @"[.]").Count;
             if (domain.Length != (charCount + periodCount))
-                return new ValidationResult(string.Format("{0} is not a valid domain.", validationContext.DisplayName));
+                return new ValidationResult(string.Format("{0} is not a valid.", validationContext.DisplayName));
 
             return ValidationResult.Success;
         }

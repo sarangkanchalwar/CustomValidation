@@ -19,7 +19,7 @@ namespace CustomValidation
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null && IsRequired)
-                return new ValidationResult(string.Format("{0} can not be left blank. Please provide valid email address.", validationContext.DisplayName));
+                return new ValidationResult(string.Format("{0} can not be left blank.", validationContext.DisplayName));
             else if (value == null && IsRequired == false)
                 return ValidationResult.Success;
             try
@@ -29,7 +29,7 @@ namespace CustomValidation
             }
             catch (Exception)
             {
-                return new ValidationResult(string.Format("{0} is not a valid email address.", validationContext.DisplayName));
+                return new ValidationResult(string.Format("{0} is not a valid.", validationContext.DisplayName));
             }
         }
     }
