@@ -1,12 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace CustomValidation
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class DomainNameAttribute : ValidationAttribute
     {
         public bool IsRequired { get; set; }
+
+        public DomainNameAttribute(bool isRequired = false)
+        {
+            IsRequired = isRequired;
+        }
 
         /// <summary>
         /// Returns true if ... is valid.

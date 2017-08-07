@@ -4,9 +4,15 @@ using System.Net.Mail;
 
 namespace CustomValidation
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class EmailAddressAttribute : System.ComponentModel.DataAnnotations.ValidationAttribute
     {
         public bool IsRequired { get; set; }
+
+        public EmailAddressAttribute(bool isRequired = false)
+        {
+            IsRequired = isRequired;
+        }
 
         /// <summary>
         /// Returns true if ... is valid.

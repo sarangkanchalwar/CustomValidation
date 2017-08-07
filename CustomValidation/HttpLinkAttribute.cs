@@ -3,9 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CustomValidation
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class HttpLinkAttribute : ValidationAttribute
     {
         public bool IsRequired { get; set; }
+
+        public HttpLinkAttribute(bool isRequired = false)
+        {
+            IsRequired = isRequired;
+        }
 
         /// <summary>
         /// Returns true if ... is valid.
