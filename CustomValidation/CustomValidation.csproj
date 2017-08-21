@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -42,6 +44,8 @@
   <ItemGroup>
     <Compile Include="ADUserNameAttribute.cs" />
     <Compile Include="DomainNameAttribute.cs" />
+    <Compile Include="ValidFileAttribute.cs" />
+    <Compile Include="ImageFileAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EmailAddressAttribute.cs" />
     <Compile Include="HttpLinkAttribute.cs" />
