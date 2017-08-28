@@ -2,14 +2,15 @@
 <package >
   <metadata>
     <id>CustomValidation</id>
-    <version>1.0.4-beta</version>
+    <version>1.0.4</version>
     <title>Custom Validation Attributes</title>
     <authors>Sarang Kanchalwar</authors>
     <owners>Sarang Kanchalwar</owners>
     <licenseUrl>https://github.com/sarangkanchalwar/CustomValidation/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/sarangkanchalwar/CustomValidation</projectUrl>
+	<iconUrl>https://cdn.onlinewebfonts.com/svg/img_545300.svg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>	
-    <description>This package provides custom validation attributes like [DomainName], [HttpLink], [ADUserName], [ValidDateTime] and [EmailAddress].</description>
+    <description>This package provides custom validation attributes like [DomainName], [HttpLink], [ADUserName], [ValidDateTime], [ValidFile], [ImageFile] and [EmailAddress].</description>
     <releaseNotes>Added [ValidFile] attribute for validating uploaded file as HttpPostedFileBasees to restrict executable files &amp; [ImageFile] attribute for validating image upload.</releaseNotes>
     <copyright>Copyright 2017</copyright>
 	<language>en-US</language>
