@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -7,13 +8,16 @@ namespace CustomValidation
 {
     public class ValidFileAttribute : ValidationAttribute
     {
-        public bool IsRequired { get; set; }
+        private bool IsRequired { get; set; }
+
+        private string AllowedFileExtensions { get; set; }
 
         private const int ImageMinimumBytes = 512;
 
-        public ValidFileAttribute(bool isRequired = false)
+        public ValidFileAttribute(bool IsRequired = false, string AllowedFileExtensions = "")
         {
-            IsRequired = isRequired;
+            this.IsRequired = IsRequired;
+            this.AllowedFileExtensions = AllowedFileExtensions;
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -32,6 +36,17 @@ namespace CustomValidation
 
         private bool IsValid(HttpPostedFileBase postedFile)
         {
+            //--------------------------------------------
+            //  Check file extension with allowed file extensions
+            //--------------------------------------------
+            if (!string.IsNullOrEmpty(AllowedFileExtensions))
+            {
+                if (AllowedFileExtensions.Split(',').Contains(System.IO.Path.GetExtension(postedFile.FileName)))
+                {
+                    return false;
+                }
+            }
+
             //-------------------------------------------
             //  Check the file's mime type
             //-------------------------------------------
