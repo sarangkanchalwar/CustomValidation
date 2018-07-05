@@ -41,7 +41,7 @@ namespace CustomValidation
             //--------------------------------------------
             if (!string.IsNullOrEmpty(AllowedFileExtensions))
             {
-                if (AllowedFileExtensions.Split(',').Contains(System.IO.Path.GetExtension(postedFile.FileName)))
+                if (!AllowedFileExtensions.Split(',').Contains(System.IO.Path.GetExtension(postedFile.FileName)))
                 {
                     return false;
                 }
