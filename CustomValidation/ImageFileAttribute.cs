@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -8,12 +9,15 @@ namespace CustomValidation
     public class ImageFileAttribute : ValidationAttribute
     {
         public bool IsRequired { get; set; }
+        
+        private string AllowedFileExtensions { get; set; }
 
         private const int ImageMinimumBytes = 512;
 
-        public ImageFileAttribute(bool isRequired = false)
+        public ImageFileAttribute(bool IsRequired = false, string AllowedFileExtensions = "")
         {
-            IsRequired = isRequired;
+            this.IsRequired = IsRequired;
+            this.AllowedFileExtensions = AllowedFileExtensions;
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -32,6 +36,17 @@ namespace CustomValidation
 
         private bool IsValid(HttpPostedFileBase postedFile)
         {
+            //--------------------------------------------
+            //  Check file extension with allowed file extensions
+            //--------------------------------------------
+            if (!string.IsNullOrEmpty(AllowedFileExtensions))
+            {
+                if (!AllowedFileExtensions.Split(',').Contains(System.IO.Path.GetExtension(postedFile.FileName.ToLower())))
+                {
+                    return false;
+                }
+            }
+            
             //-------------------------------------------
             //  Check the image mime types
             //-------------------------------------------
@@ -41,18 +56,6 @@ namespace CustomValidation
               contentType != "image/pjpeg" &&
               contentType != "image/x-png" &&
               contentType != "image/png")
-            {
-                return false;
-            }
-
-            //-------------------------------------------
-            //  Check the image extension
-            //-------------------------------------------
-            var imageExtension = System.IO.Path.GetExtension(postedFile.FileName).ToLower();
-            if (imageExtension != ".jpg"
-                && imageExtension != ".png"
-                && imageExtension != ".jpeg"
-                && imageExtension != ".bmp")
             {
                 return false;
             }
